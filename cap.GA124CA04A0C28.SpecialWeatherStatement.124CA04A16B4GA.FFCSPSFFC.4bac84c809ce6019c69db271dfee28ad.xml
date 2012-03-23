@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<?xml-stylesheet href='http://alerts.weather.gov/cap/capatomproduct.xsl' type='text/xsl'?>
+
+<!--
+This atom/xml feed is an index to active advisories, watches and warnings 
+issued by the National Weather Service.  This index file is not the complete 
+Common Alerting Protocol (CAP) alert message.  To obtain the complete CAP 
+alert, please follow the links for each entry in this index.  Also note the 
+CAP message uses a style sheet to convey the information in a human readable 
+format.  Please view the source of the CAP message to see the complete data 
+set.  Not all information in the CAP message is contained in this index of 
+active alerts.
+-->
+
+<alert xmlns = 'urn:oasis:names:tc:emergency:cap:1.1'>
+
+    <!-- http-date = Fri, 16 Mar 2012 02:18:00 GMT -->
+    <identifier>NOAA-NWS-ALERTS-GA124CA04A0C28.SpecialWeatherStatement.124CA04A16B4GA.FFCSPSFFC.4bac84c809ce6019c69db271dfee28ad</identifier>
+    <sender>w-nws.webmaster@noaa.gov</sender>
+    <sent>2012-03-15T22:18:00-04:00</sent>
+    <status>Actual</status>
+    <msgType>Alert</msgType>
+    <scope>Public</scope>
+    <note>Alert for Chattooga; Walker (Georgia) Issued by the National Weather Service</note>
+    <references></references>
+    <info>
+        <category>Met</category>
+        <event>Special Weather Statement</event>
+        <urgency>Expected</urgency>
+        <severity>Minor</severity>
+        <certainty>Observed</certainty>
+        <eventCode>
+        <valueName>SAME</valueName>
+        <value></value>
+        </eventCode>
+        <effective>2012-03-15T22:18:00-04:00</effective>
+        <expires>2012-03-15T22:45:00-04:00</expires>
+        <senderName>NWS Atlanta (Northern and Central Georgia)</senderName>
+        <headline>Special Weather Statement issued March 15 at 10:18PM EDT  by NWS Atlanta</headline>
+        <description>...SIGNIFICANT WEATHER ADVISORY FOR PEA SIZED HAIL AND 35 MPH WINDS
+        IN WALKER AND CHATTOOGA COUNTIES UNTIL 1045 PM EDT...
+        AT 1013 PM EDT/913 PM CDT/...NATIONAL WEATHER SERVICE DOPPLER RADAR
+        INDICATED STRONG THUNDERSTORMS FROM 8 MILES NORTHEAST OF VILLANOW TO
+        6 MILES NORTHWEST OF CLOUDLAND...MOVING NORTHEAST AT 25 MPH.
+        THESE STORMS HAVE THE POTENTIAL TO PRODUCE PEA SIZED HAIL...FREQUENT
+        CLOUD TO GROUND LIGHTNING AND WIND GUSTS TO 35 MPH AS THEY MOVE
+        ACROSS WALKER AND CHATTOOGA COUNTIES THROUGH 1045 PM EDT. SOME
+        LOCATIONS IN THE PATH OF THESE STORMS INCLUDE JAMES H. FLOYD STATE
+        PARK...LYERLY...BERRYTON...SUMMERVILLE...TRION...SUBLIGNA...
+        VILLANOW...SUTTLES MILL...NAOMI...CENTER POST...LAFAYETTE AND
+        LINWOOD. HEAVY DOWNPOURS WILL CAUSE PONDING OF WATER ON ROADWAYS.
+        &amp;&amp;</description>
+        <instruction></instruction>
+        <parameter>
+            <valueName>WMOHEADER</valueName>
+            <value></value>
+        </parameter>
+        <parameter>
+            <valueName>UGC</valueName>
+            <value>GAZ002-011</value>
+        </parameter>
+        <parameter>
+            <valueName>VTEC</valueName>
+            <value></value>
+        </parameter>
+        <parameter>
+            <valueName>TIME...MOT...LOC</valueName>
+            <value>0219Z 226DEG 24KT 3480 8500 3460 8553</value>
+        </parameter>
+        <area>
+            <areaDesc>Chattooga; Walker</areaDesc>
+            <polygon>34.67,-85.49 34.74,-85.25 34.78,-85.20 34.77,-85.14 34.72,-85.17 34.72,-85.06 34.68,-85.05 34.35,-85.38 34.34,-85.48 34.60,-85.54 34.67,-85.49</polygon>
+            <geocode>
+                <valueName>FIPS6</valueName>
+                <value>013055</value>
+            </geocode>
+            <geocode>
+                <valueName>FIPS6</valueName>
+                <value>013295</value>
+            </geocode>
+            <geocode>
+                <valueName>UGC</valueName>
+                <value>GAZ002</value>
+            </geocode>
+            <geocode>
+                <valueName>UGC</valueName>
+                <value>GAZ011</value>
+            </geocode>
+        </area>
+    </info>
+</alert>
