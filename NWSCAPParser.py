@@ -26,7 +26,8 @@ class NWSCAPParser:
         return getattr(self.alert, name)
 
 def test():
-    with open(r'cap.GA124CA04A0C28.SpecialWeatherStatement.124CA04A16B4GA.FFCSPSFFC.4bac84c809ce6019c69db271dfee28ad.xml','r') as f:
+    fn = r'cap.GA124CA04A0C28.xml'
+    with open(fn,'r') as f:
         src = f.read()
         alert = NWSCAPParser(src)
         print alert.identifier
