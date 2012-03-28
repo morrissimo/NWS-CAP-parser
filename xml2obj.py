@@ -24,7 +24,7 @@ def xml2obj(src):
             else:
                 return [self][key]
         def __contains__(self, name):
-            return self._attrs.has_key(name)
+            return name in self._attrs
         def __nonzero__(self):
             return bool(self._attrs or self.data)
         def __getattr__(self, name):
