@@ -12,11 +12,15 @@ full list of US feeds - can be found on the NWS CAP [home page](http://alerts.we
 The nwscapparser module exports a single class, NWSCAPParser. To use this class, pass a string containing the
 XML from a CAP alert as the only param to the initialization call:
 ```python
-fn = r'cap.IL124CA04A2F50.SevereThunderstormWarning.xml'	# included (actual) alert
-src = open(fn,'r').read()
+from nwscapparser import NWSCAPParser
+f = r'cap.IL124CA04A2F50.SevereThunderstormWarning.xml'	# included (actual) alert
+src = open(f,'r').read()
 alert = NWSCAPParser(src)
 ```
 
-Of note, the instance easily exposes the FIPS6 county codes (also known as SAME codes) that the alert references.
+Of note, the instance easily exposes the FIPS6 county codes (also known as SAME codes) that the alert references. See 
+the demo file `demo.py` for more examples of the methods and fields available in a parsed alert instance.
 
-See the demo file `demo.py` for more examples of the methods and fields available in a parsed alert instance.
+The module also exports a dictionary `us_states` with keys that are two-letter US state abbreviations and values 
+that are full state names, to aid in iterating through the feeds offered by the NWS, which are published by state 
+abbreviations. For example, the CAP feed for Arizona (AZ) can be accessed at the URL `http://alerts.weather.gov/cap/az.php?x=1`.
