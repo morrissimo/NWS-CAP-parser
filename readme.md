@@ -17,4 +17,6 @@ src = open(fn,'r').read()
 alert = NWSCAPParser(src)
 ```
 
+Of note, the instance easily exposes the FIPS6 county codes (also known as SAME codes) that the alert references.
+
 See the demo file `demo.py` for more examples of the methods and fields available in a parsed alert instance.
