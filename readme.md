@@ -11,10 +11,10 @@ full list of US feeds - can be found on the NWS CAP [home page](http://alerts.we
 
 The nwscapparser module exports a single class, NWSCAPParser. To use this class, pass a string containing the
 XML from a CAP alert as the only param to the initialization call:
-`
-fn = r'cap.IL124CA04A2F50.SevereThunderstormWarning.xml'
+```python
+fn = r'cap.IL124CA04A2F50.SevereThunderstormWarning.xml'	# included (actual) alert
 src = open(fn,'r').read()
 alert = NWSCAPParser(src)
-`
+```
 
 See the demo file `demo.py` for more examples of the methods and fields available in a parsed alert instance.
