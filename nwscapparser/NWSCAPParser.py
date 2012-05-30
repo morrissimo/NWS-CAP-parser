@@ -20,6 +20,7 @@ class NWSCAPParser:
         self.INFO_PARAMS = {}
         [self.INFO_PARAMS.update({p.valueName:p.value}) for p in self.alert.info.parameter]
     def get_clean_text(self, raw_text):
+        if raw_text is None: return None
         return R1.sub(" ", raw_text.strip()).replace('\n',' ') 
     def get_clean_description(self):
         return self.get_clean_text(self.alert.info.description)
