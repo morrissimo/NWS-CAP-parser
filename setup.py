@@ -2,7 +2,7 @@ from distutils.core import setup
 import glob
 
 setup(name='nwscapparser',
-      version='1.0',
+      version='1.0.1',
       description='NWS CAP Parser',
       author='Robert Morris',
       author_email='robert@emthree.com',
