@@ -13,10 +13,8 @@ class NWSCAPParser:
         self.load()
     def load(self):
         self.alert = xml2obj(self.xml)
-        self.FIPS6 = []
-        [self.FIPS6.append(g.value) for g in self.alert.info.area.geocode if g.valueName.upper() == 'FIPS6']
-        self.UGC = []
-        [self.UGC.append(g.value) for g in self.alert.info.area.geocode if g.valueName.upper() == 'UGC']
+        self.FIPS6 = [g.value for g in self.alert.info.area.geocode if g.valueName.upper() == 'FIPS6']
+        self.UGC = [g.value for g in self.alert.info.area.geocode if g.valueName.upper() == 'UGC']
         self.INFO_PARAMS = {}
         [self.INFO_PARAMS.update({p.valueName:p.value}) for p in self.alert.info.parameter]
     def get_clean_text(self, raw_text):
