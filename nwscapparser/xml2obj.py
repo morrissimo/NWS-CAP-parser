@@ -2,6 +2,14 @@
 import re
 import xml.sax.handler
 
+# used to clean text by removing multiple spaces
+R1 = re.compile(r"^\s{2,}", re.MULTILINE)
+
+def clean_text(field_name, raw_text):
+    if field_name in ['description','instruction']:
+        return R1.sub(" ", raw_text.strip()).replace('\n',' ')
+    return raw_text
+
 def xml2obj(src):
     """
     A simple function to converts XML data into native Python object.
@@ -66,12 +74,12 @@ def xml2obj(src):
         def endElement(self, name):
             text = ''.join(self.text_parts).strip()
             if text:
-                self.current.data = text
+                self.current.data = clean_text(name,text)
             if self.current._attrs:
                 obj = self.current
             else:
                 # a text only node is simply represented by the string
-                obj = text or ''
+                obj = clean_text(name,text) or ''
             self.current, self.text_parts = self.stack.pop()
             self.current._add_xml_attr(_name_mangle(name), obj)
         def characters(self, content):

@@ -2,6 +2,7 @@ from xml2obj import xml2obj
 import ast
 import json
 import re
+from exceptions import DeprecationWarning
 
 # used to clean the alert description field by removing multiple spaces
 R1 = re.compile(r"^\s{2,}", re.MULTILINE)
@@ -17,13 +18,6 @@ class NWSCAPParser:
         self.UGC = [g.value for g in self.alert.info.area.geocode if g.valueName.upper() == 'UGC']
         self.INFO_PARAMS = {}
         [self.INFO_PARAMS.update({p.valueName:p.value}) for p in self.alert.info.parameter]
-    def get_clean_text(self, raw_text):
-        if raw_text is None: return None
-        return R1.sub(" ", raw_text.strip()).replace('\n',' ') 
-    def get_clean_description(self):
-        return self.get_clean_text(self.alert.info.description)
-    def get_clean_instruction(self):
-        return self.get_clean_text(self.alert.info.instruction)
     def __getattr__(self, name):
         if name.startswith('__'):
             raise AttributeError(name)
