@@ -1,11 +1,6 @@
 from xml2obj import xml2obj
 import ast
 import json
-import re
-from exceptions import DeprecationWarning
-
-# used to clean the alert description field by removing multiple spaces
-R1 = re.compile(r"^\s{2,}", re.MULTILINE)
 
 class NWSCAPParser:
     def __init__(self, raw_cap_xml, cap_url=None):
