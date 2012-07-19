@@ -1,6 +1,21 @@
 ## {{{ http://code.activestate.com/recipes/534109/ (r8)
 import re
 import xml.sax.handler
+import dateutil.parser as duparser
+import calendar
+
+# used to clean text by removing multiple spaces
+R1 = re.compile(r"^\s{2,}", re.MULTILINE)
+
+def clean_text(field_name, raw_text):
+    if field_name in ['description','instruction']:
+        return R1.sub(" ", raw_text.strip()).replace('\n',' ')
+    return raw_text
+
+def convert_timestamp(t):
+    #e.g., 2012-03-15T22:18:00-04:00
+    dt = duparser.parse(t)
+    return calendar.timegm(dt.utctimetuple())
 
 def xml2obj(src):
     """
@@ -66,14 +81,20 @@ def xml2obj(src):
         def endElement(self, name):
             text = ''.join(self.text_parts).strip()
             if text:
-                self.current.data = text
+                self.current.data = clean_text(name,text)
             if self.current._attrs:
                 obj = self.current
             else:
                 # a text only node is simply represented by the string
-                obj = text or ''
+                obj = clean_text(name,text) or ''
             self.current, self.text_parts = self.stack.pop()
             self.current._add_xml_attr(_name_mangle(name), obj)
+            try:
+                if str(obj).strip() != '':
+                    obj_epoch = convert_timestamp(obj)
+                    self.current._add_xml_attr(_name_mangle("%s_epoch"%name), obj_epoch)
+            except:
+                pass
         def characters(self, content):
             self.text_parts.append(content)
 

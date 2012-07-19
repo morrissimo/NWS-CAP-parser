@@ -20,14 +20,6 @@ def test_json_dump(alert):
     print '---- json dump ----'
     pprint(alert.as_json())
 
-def test_clean_desc(alert):
-    print '---- get_clean_description ----'
-    print repr(alert.get_clean_description())
-
-def test_clean_instr(alert):
-    print '---- get_clean_instruction ----'
-    print repr(alert.get_clean_instruction())
-
 if __name__=='__main__':
     # first command line arg is assumed to be a full URL to a CAP
     if len(sys.argv) > 1:
@@ -44,5 +36,3 @@ if __name__=='__main__':
     test_basic_fields(alert)
     test_dict_dump(alert)
     test_json_dump(alert)
-    test_clean_desc(alert)
-    test_clean_instr(alert)
