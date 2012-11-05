@@ -4,6 +4,7 @@ from pprint import pprint
 
 from nwscapparser import NWSCAPParser
 
+
 def test_basic_fields(alert):
     print '---- basic fields ----'
     print alert.identifier
@@ -12,13 +13,16 @@ def test_basic_fields(alert):
     print '%d UGC codes:'%len(alert.UGC), alert.UGC
     print '%d INFO_PARAMS:'%len(alert.INFO_PARAMS), alert.INFO_PARAMS
 
+
 def test_dict_dump(alert):
     print '---- dict dump ----'
     pprint(alert.as_dict())
 
+
 def test_json_dump(alert):
     print '---- json dump ----'
     pprint(alert.as_json())
+
 
 if __name__=='__main__':
     # first command line arg is assumed to be a full URL to a CAP
@@ -36,3 +40,4 @@ if __name__=='__main__':
     test_basic_fields(alert)
     test_dict_dump(alert)
     test_json_dump(alert)
+
